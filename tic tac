@@ -1,0 +1,114 @@
+board=['_','_','_'
+        ,'_','_','_'
+        ,'_','_','_']
+def apearance():
+    print('|',board[0],'|',board[1],'|',board[2],'|')
+    print('|',board[3],'|',board[4],'|',board[5],'|')
+    print('|',board[6],'|',board[7],'|',board[8],'|')
+
+game_stil_going=True
+def result():
+    global game_stil_going
+    if board[0]=='X' and board[1]=='X' and board[2]=='X':
+        print('Player 1 Win\n')
+        return False
+    elif board[3]=='X' and board[4]=='X' and board[5]=='X':
+        print('Player 1 Win\n')
+
+        return False
+    elif board[8]=='X' and board[7]=='X' and board[8]=='X':
+        print('Player 1 Win\n')
+
+        return False
+    elif board[0]=='X' and board[3]=='X' and board[6]=='X':
+        print('Player 1 Win\n')
+
+        return False
+    elif board[1]=='X' and board[4]=='X' and board[7]=='X':
+        print('Player 1 Win\n')
+
+        return False
+    elif board[2]=='X' and board[5]=='X' and board[8]=='X':
+        print('Player 1 Win\n')
+
+        return False
+    elif board[0]=='X' and board[4]=='X' and board[8]=='X':
+        print('Player 1 Win\n')
+
+        return False
+    elif board[2]=='X' and board[4]=='X' and board[6]=='X':
+        print('Player 1 Win\n')
+
+        return False
+    else:
+        return True
+
+def result1():
+    if board[0]=='O' and board[1]=='O' and board[2]=='O':
+        print('Player 2 Win\n')
+
+        return False
+    elif board[3]=='O' and board[4]=='O' and board[5]=='O':
+        print('Player 2 Win\n')
+
+        return False
+    elif board[8]=='O' and board[7]=='O' and board[8]=='O':
+        print('Player 2 Win\n')
+
+        return False
+    elif board[0]=='O' and board[3]=='O' and board[6]=='O':
+        print('Player 2 Win\n')
+        return False
+    elif board[1]=='O' and board[4]=='O' and board[7]=='O':
+        print('Player 2 Win\n')
+
+        return False
+    elif board[2]=='O' and board[5]=='O' and board[8]=='O':
+        print('Player 2 Win\n')
+
+        return False
+    elif board[0]=='O' and board[4]=='O' and board[8]=='O':
+        print('Player 2 Win\n')
+
+        return False
+    elif board[2]=='O' and board[4]=='O' and board[6]=='O':
+        print('Player 2 Win\n')
+
+        return False
+    else:
+        return True
+while result() and result1():
+    pos=int(input('Player 1: Enter the number from 1 to 9\n'))
+    if type(pos) ==type(1):
+       
+        pos=int(pos)   
+        pos=pos-1
+    else:
+         print("Please Enter X")
+         continue 
+    
+    if board[pos]=='O':
+        print('This position has been filed')
+        continue
+    board[pos]='X'
+   
+        
+    apearance()
+    def goto():
+        return int(input('Player 2: Enter the number from 1 to 9\n'))
+    pos=int(input('Player 2: Enter the number from 1 to 9\n'))
+    def player2_appearance():
+        global board,pos,apearance
+        
+        board[pos]='O'
+        apearance()
+    if type(pos)==type(1):
+    
+        pos=pos-1
+    else:
+        print("Please Enter O")
+        goto()
+    if board[pos]=='X':
+        print('This position has been filed')
+        pos=goto()
+    player2_appearance()
