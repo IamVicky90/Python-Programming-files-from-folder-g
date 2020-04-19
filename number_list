@@ -1,0 +1,8 @@
+def num_list(l):
+    b=0
+    for i in l:
+        if type(i) == list 
+            b=b+1
+    return b
+list1=[1,2,[3,4],[3,6,7],[3,5],8,9]
+print(num_list(list1))

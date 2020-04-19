@@ -1,0 +1,181 @@
+import tkinter as tk
+from tkinter import ttk,font,colorchooser,messagebox,filedialog
+import os
+main_application=tk.Tk()
+main_application.geometry('1200x800')
+main_application.title("Vicky Text Editor by Vicky World Production")
+##############################MAIN MANUE#################################################################
+
+
+#fileIcons
+new_icon=tk.PhotoImage(file=r"E:\Images\ICONS\new.png")
+open_icon=tk.PhotoImage(file=r"E:\Images\ICONS\open.png")
+save=tk.PhotoImage(file=r"E:\Images\ICONS\save.png")
+save_as_icon=tk.PhotoImage(file=r"E:\Images\ICONS\save_as.png")
+exit=tk.PhotoImage(file=r"E:\Images\ICONS\exit.png")
+main_menu=tk.Menu()
+file=tk.Menu(main_menu,tearoff=False)
+
+#editIcons
+
+copy_icon=tk.PhotoImage(file=r"E:\Images\ICONS\copy.png")
+paste_icon=tk.PhotoImage(file=r"E:\Images\ICONS\paste.png")
+cut_icon=tk.PhotoImage(file=r"E:\Images\ICONS\cut.png")
+clear_icon_all=tk.PhotoImage(file=r"E:\Images\ICONS\clear_all.png")
+find_icon=tk.PhotoImage(file=r"E:\Images\ICONS\find.png")
+edit=tk.Menu(main_menu,tearoff=False)
+
+#viewicon
+tool_bar_icon=tk.PhotoImage(file=r"E:\Images\ICONS\tool_bar.png")
+status_bar_icon=tk.PhotoImage(file=r"E:\Images\ICONS\status_bar.png")
+View=tk.Menu(main_menu,tearoff=False)
+
+#colorthemeIcon
+light_default_icon=tk.PhotoImage(file=r"E:\Images\ICONS\light_default.png")
+light_plus_icon=tk.PhotoImage(file=r"E:\Images\ICONS\light_plus.png")
+dark_icon=tk.PhotoImage(file=r"E:\Images\ICONS\dark.png")
+red_default_icon=tk.PhotoImage(file=r"E:\Images\ICONS\red.png")
+monokai_icon=tk.PhotoImage(file=r"E:\Images\ICONS\monokai.png")
+night_blue__icon=tk.PhotoImage(file=r"E:\Images\ICONS\night_blue.png")
+Color_theme=tk.Menu(main_menu,tearoff=False)
+#addcommand
+theme_var=tk.StringVar()
+color_icons=(light_default_icon,light_plus_icon,dark_icon,red_default_icon,monokai_icon,night_blue__icon)
+color_dict={'Light Default':
+    ('#000000','#ffffff'),
+    'Light Plus':("#474747","#e0e0e0"),
+    'Dark':("#c4c4c4","#2d2d2d"),
+    'Red':("#2d2d2d","#ffe8e8"),
+    'Monokai':("#d3b774","#474747"),
+    'Night Blue':("#ededed","#6b9dc2"),
+}
+
+
+main_menu.add_cascade(label='File',menu=file)
+
+main_menu.add_cascade(label='Edit',menu=edit)
+
+main_menu.add_cascade(label='View',menu=View)
+
+main_menu.add_cascade(label='Color Theme',menu=Color_theme)
+
+#########################################################################Tool bar Start#########################
+tool_bar=ttk.Label(main_application)
+tool_bar.pack(side=tk.TOP,fill=tk.X)
+####font
+font_tuple =tk.font.families()
+font_family=tk.StringVar()
+font_box=ttk.Combobox(tool_bar,width=30,textvariable=font_family,state='readonly')
+font_box['values']=font_tuple
+font_box.current(font_tuple.index('Arial'))
+font_box.grid(row=0,column=0,padx=5)
+
+##size
+size_var=tk.IntVar()
+font_size=ttk.Combobox(tool_bar,width=14,textvariable=size_var,state='readonly')
+font_size['values']=tuple(range(8,81))
+font_size.grid(row=0,column=1,padx=5)
+font_size.current(4)
+
+##boldicon
+bold_icon=tk.PhotoImage(file=r"E:\Images\ICONS\bold.png")
+bold_btn=ttk.Button(tool_bar,image=bold_icon).grid(row=0,column=2,padx=5)
+
+#italicbutton
+italic_icon=tk.PhotoImage(file=r"E:\Images\ICONS\italic.png")
+italic_btn=ttk.Button(tool_bar,image=italic_icon).grid(row=0,column=4,padx=5)
+
+#underlinebutton
+under_line_icon=tk.PhotoImage(file=r"E:\Images\ICONS\underline.png")
+under_line_btn=ttk.Button(tool_bar,image=under_line_icon).grid(row=0,column=5,padx=5)
+
+#fontcolorbutton
+font_color_icon=tk.PhotoImage(file=r"E:\Images\ICONS\font_color.png")
+font_color_btn=ttk.Button(tool_bar,image=font_color_icon).grid(row=0,column=6,padx=5)
+
+#align
+align_left_icon=tk.PhotoImage(file=r"E:\Images\ICONS\align_left.png")
+align_centre_icon=tk.PhotoImage(file=r"E:\Images\ICONS\align_center.png")
+align_right_icon=tk.PhotoImage(file=r"E:\Images\ICONS\align_right.png")
+align_left_btn=ttk.Button(tool_bar,image=align_left_icon).grid(row=0,column=7,padx=5)
+align_centre_btn=ttk.Button(tool_bar,image=align_centre_icon).grid(row=0,column=8,padx=5)
+align_right_btn=ttk.Button(tool_bar,image=align_right_icon).grid(row=0,column=9,padx=5)
+####################################End Toolbar##############################################
+
+#####################################main manu funtionality##################################
+#addcommandofFileIcons
+file.add_command(label='New',image=new_icon,compound=tk.LEFT,accelerator="Ctrl+N")
+file.add_command(label='Open',image=open_icon,compound=tk.LEFT,accelerator="Ctrl+O")
+file.add_command(label='Save',image=save,compound=tk.LEFT,accelerator="Ctrl+S")
+file.add_command(label='Save as',image=save_as_icon,compound=tk.LEFT,accelerator="Ctrl+Alt+S")
+file.add_command(label='Exit',image=exit,compound=tk.LEFT,accelerator="Ctrl+Q")
+
+#addcommandstoedit
+edit.add_command(label='Copy',image=copy_icon,compound=tk.LEFT,accelerator='Ctrl+C')
+edit.add_command(label="Paste",image=paste_icon,compound=tk.LEFT,accelerator='Ctrl+V')
+edit.add_command(label='Cut',image=paste_icon,compound=tk.LEFT,accelerator='Ctrl+X')
+edit.add_command(label='Clear',image=clear_icon_all,compound=tk.LEFT,accelerator='Ctrl+F')
+
+#addcheckbuttontoview
+View.add_checkbutton(label='Tool Bar',image=tool_bar_icon,compound=tk.LEFT)
+View.add_checkbutton(label='Status Bar',image=status_bar_icon,compound=tk.LEFT)
+
+
+
+#add Radio to Color Theme
+count=0
+for i in color_dict:
+    Color_theme.add_radiobutton(label=i,image=color_icons[count],compound=tk.LEFT,variable=theme_var)
+    count+=1
+######################################end main menu funtionality#############################
+##########################################Text Editor########################################
+text_editor=tk.Text(main_application)
+text_editor.config(wrap='word',relief=tk.FLAT)
+
+scrool_bar=tk.Scrollbar(main_application)
+text_editor.focus_set()
+scrool_bar.pack(fill=tk.Y,side=tk.RIGHT)
+text_editor.pack(fill=tk.BOTH,expand=True)
+
+
+scrool_bar.config(command=text_editor.yview)
+text_editor.config(yscrollcommand=scrool_bar.set)
+
+##############################Text Editor Funtionality######################################
+##################Font Funtionality###########################
+current_font_family='Arial'
+current_font_size=12
+def change_font(main_application):
+    global current_font_family
+    current_font_family=font_family.get()
+    text_editor.configure(font=(current_font_family,current_font_size))
+font_box.bind("<<ComboboxSelected>>",change_font)
+def current_fontsize(main_application):
+    global current_font_size
+    current_font_size=size_var.get()
+    text_editor.configure(font=(current_font_family,current_font_size))
+font_size.bind("<<ComboboxSelected>>",current_fontsize)
+
+
+##################Button Funtionality#########################
+####Bold Button###########
+def change_bold():
+    text_property=tk.font.font(font=text_editor['font'])
+    if text_property.actual()['weight']=='normal':
+        text_property.configure(font=(current_font_family,current_font_size,'bold'))
+    if text_property.actual()['weight']=='bold':
+        text_property.configure(font=(current_font_family,current_font_size,'normal'))
+
+
+
+bold_btn.configure(command=change_bold)
+
+#########################################End Text Editor#####################################
+########################################Start Status Bar#####################################
+
+status_bar=ttk.Label(main_application,text="Status Bar")
+status_bar.pack(side=tk.BOTTOM)
+######################################End Status Bar#########################################
+
+main_application.config( menu=main_menu)
+main_application.mainloop()

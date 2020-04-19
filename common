@@ -1,0 +1,10 @@
+def common(l1,l2):
+    com=[]
+    for i in l1:
+        for j in l2:
+            if i==j:
+                com.append(i)
+    return com
+l1 =[1,2,3,4]
+l2=[2,4,6]
+print(common(l1,l2))

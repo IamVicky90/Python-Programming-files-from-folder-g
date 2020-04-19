@@ -1,0 +1,12 @@
+def func(l, s):
+    
+    for pos,name in enumerate(l):
+        if name==s:
+            return pos
+    return -1
+        
+li=['abs','deg','waqas'] 
+func(li,'waqas')
+print(func)
+        
+

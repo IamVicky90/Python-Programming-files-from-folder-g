@@ -1,0 +1,5 @@
+name1,name2=input("Enter two numbers with comma seperation\n").split(",")
+name1.upper()
+name2.upper()
+print(name1.upper().replace(" ","").count(name2.upper().replace(" ","")))
+print("The characters are: {}".format(name1.upper().replace(" ","").count(name2.upper().replace(" ",""))))

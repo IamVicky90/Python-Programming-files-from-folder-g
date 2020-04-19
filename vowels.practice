@@ -1,0 +1,7 @@
+number=input("Enter the numbers that containing more than 1 digit\n")
+i=0
+total =0
+while i<=len(number)-1:
+    total= total+int(number[i])
+    i=i+1
+print(total)

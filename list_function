@@ -1,0 +1,15 @@
+def reverse_items(l):
+    new=[]
+    b=[]
+    c=[]
+    for i in range(len(l)):
+        new =l[i]
+        for p in range(len(new)):
+            b = new[::-1]
+            if b==c:
+                break
+            
+            c=b
+            print(b)
+list =["abc","hjk","kol"]
+reverse_items(list)

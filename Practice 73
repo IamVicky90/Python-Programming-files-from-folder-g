@@ -1,0 +1,12 @@
+def big_numbr(a,b,c):
+    if a<b>c:
+        return b
+    elif c<a>b:
+        return a
+    else:
+        return c
+num1=int(input("Enter first numbers\n"))
+num2=int(input("Enter second numbers\n"))
+num3=int(input("Enter third numbers\n"))
+print(big_numbr(num1,num2,num3))l
+

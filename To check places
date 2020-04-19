@@ -1,0 +1,49 @@
+#name ="Waqas"
+#print(name.count("a"))
+#name=input("Enter any string\n")
+#i=0
+#sum=0
+#while i<len(name):
+ #   if name[i]=="w" or name[i]=="W":
+  #      print(name[i])
+   #     if name[i]:
+    #        sum=sum+1
+       
+        
+    #elif name[i]=="a" or name[i]=="A":
+      #  print(name[i])
+       # print(i+1)
+    #elif name[i]=="q" or name[i]=="Q":
+     #   print(name[i])
+      #  print(i+1)
+    #elif name[i]=="a" or name[i]=="A":
+     #   print(name[i])
+      #  print(i+1)
+    #elif name[i]=="s" or name[i]=="S":
+     #   print(name[i])
+      #  print(i+1)
+    # i=i+1
+
+#print(sum)
+
+
+
+#name =input("Enter  your string")
+#i=0
+#temp =""
+#while i<len(name):
+ #   if name[i] not in temp:
+  #      temp = temp+name[i]
+   #     print(f"{name[i]} : {name.count(name[i])}")
+    #i=i+1
+
+
+
+
+name = input("Enter your string\n")
+sea =""
+for i in range(0,len(name)):
+    if name[i] not in sea:
+        sea+=name[i]
+        print(f"{name[i]} : {name.count(name[i])}")
+    i=i+1
