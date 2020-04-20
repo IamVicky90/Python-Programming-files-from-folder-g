@@ -26,3 +26,16 @@ employ1.salary_history()
 print(employ2.name)
 
 #####################################Try with another way to understand classes########
+class names_of_students:
+    def __init__(self,*args):
+        lst=[]
+        for name in args:
+            self.name=name
+            lst.append(self.name)
+            self.name=lst
+    def show_students_names(self):
+        for names in self.name:
+            print(names)
+    
+s1=names_of_students('waqas','ahmad','hassan')
+s1.show_students_names()
