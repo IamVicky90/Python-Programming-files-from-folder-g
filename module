@@ -1,0 +1,4 @@
+import classes_in_python as c
+c.employ1.salary_history()
+s2=c.names_of_students('ayesha','alia','fatima')
+s2.show_students_names()

@@ -36,6 +36,6 @@ class names_of_students:
     def show_students_names(self):
         for names in self.name:
             print(names)
-    
+            
 s1=names_of_students('waqas','ahmad','hassan')
 s1.show_students_names()
