@@ -1,0 +1,2 @@
+This is changing from r+ mode in file 2
+This is also a changing from from file number 2
